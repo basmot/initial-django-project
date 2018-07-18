@@ -42,7 +42,7 @@ ROOT_URLCONF = 'backoffice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'backoffice/templates/')],
+        'DIRS': [os.path.join(BASE_DIR, 'backoffice/../templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'backoffice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '../../db.sqlite3'),
     }
 }
 
