@@ -11,6 +11,7 @@
         <title>{% trans 'project'|title %}</title>
 
         <link rel="stylesheet" href="{% static 'css/bootstrap4/cyborg/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'font-awesome/css/all.min.css' %}">
 
         {% block style %}
         {% endblock style %}
@@ -26,16 +27,24 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-creative-commons-remix"></i> Features
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-dollar-sign"></i> Pricing
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">
+                            <i class="far fa-question-circle"></i> About
+                        </a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
