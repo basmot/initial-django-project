@@ -1,4 +1,3 @@
-from backoffice.settings.base import INSTALLED_APPS
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, re_path, include
@@ -6,8 +5,9 @@ from backoffice import views
 
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('', views.home),
+    path('accounts/', include('accounts.urls')),
 ]
 
 import debug_toolbar

@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +111,6 @@ STATICFILES_DIRS = [
     'backoffice/static/',
     os.path.join(BASE_DIR, "static"),
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'accounts/login/'
