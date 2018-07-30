@@ -1,6 +1,7 @@
 <!doctype html>
 {% load staticfiles %}
 {% load i18n %}
+{% load bootstrap4 %}
 
 
 {% get_current_language as LANGUAGE_CODE %}
@@ -31,7 +32,11 @@
 
         <div class="container">
 
-{#            {% bootstrap_javascript jquery=True %}#}
+            {% if messages %}
+                <br>
+                {% bootstrap_messages %}
+                <br>
+            {% endif %}
 
             {% block content %}
             {% endblock %}
