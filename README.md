@@ -1,5 +1,9 @@
 # initial-django-project
 
+<a href="https://codeclimate.com/github/basmot/initial-django-project/maintainability"><img src="https://api.codeclimate.com/v1/badges/3a68733bac0f7a1e5743/maintainability" /></a>
+
+## What is this?
+
 This project aim to share a basis working Django project (2.0.7) including :
 - Bootstrap 4 css/javascript files in project static files ('darkly' theme - including popper.js and jquery)
 - Font-awesome (5.1.1)
