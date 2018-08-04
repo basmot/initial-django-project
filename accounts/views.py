@@ -20,7 +20,7 @@ class StandardLogout(auth_views.LogoutView):
 
 class UserCreateView(CreateView):
     form_class = UserForm
-    template_name = 'subscribe_form.html'
+    template_name = 'registration_form.html'
 
     def get_success_url(self):
         add_message(self.request, messages.SUCCESS, _('Form successfully submitted.'))

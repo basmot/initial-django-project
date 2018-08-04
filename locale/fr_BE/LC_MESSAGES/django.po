@@ -31,11 +31,11 @@ msgstr "se connecter"
 msgid "subscribe"
 msgstr "s'inscrire"
 
-#: accounts/templates/subscribe_form.html:8
+#: accounts/templates/registration_form.html:8
 msgid "registration form"
 msgstr "fomulaire d'inscription"
 
-#: accounts/templates/subscribe_form.html:15
+#: accounts/templates/registration_form.html:15
 msgid "submit"
 msgstr "soumettre"
 
