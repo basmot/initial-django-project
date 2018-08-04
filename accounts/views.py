@@ -14,7 +14,7 @@ class StandardLogin(auth_views.LoginView):
 
 class StandardLogout(auth_views.LogoutView):
     def render_to_response(self, context, **response_kwargs):
-        add_message(self.request, messages.SUCCESS, _('successfully logged out.'))
+        add_message(self.request, messages.SUCCESS, _('Successfully logged out.'))
         return HttpResponseRedirect(reverse('home'))
 
 
@@ -23,4 +23,5 @@ class UserCreateView(CreateView):
     template_name = 'subscribe_form.html'
 
     def get_success_url(self):
+        add_message(self.request, messages.SUCCESS, _('Form successfully submitted.'))
         return reverse('login')

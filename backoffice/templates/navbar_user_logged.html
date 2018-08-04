@@ -1,7 +1,8 @@
+{% load i18n %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">Project</a>
+        <a class="navbar-brand" href="#">{% trans 'project'|capfirst %}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,7 +35,7 @@
                 <div class="btn-group" role="group">
                     <button id="btnGroupDropUserProfile" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDropUserProfile">
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">{% trans 'logout'|capfirst %}</a>
                     </div>
                 </div>
             </div>

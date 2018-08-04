@@ -1,13 +1,23 @@
 {% extends 'layout.html' %}
+{% load i18n %}
 
 {% block content %}
 
-    <h1>Welcome !</h1>
+    <h1>{% trans 'welcome'|capfirst %} !</h1>
 
     {% if request.user.is_authenticated %}
-        <p>Authenticated as {{ request.user }}</p>
+        <p>
+            {% blocktrans trimmed with user=request.user %}
+                Authenticated as {{ user }}.
+            {% endblocktrans %}
+        </p>
     {% else %}
-        <p>Not authenticated. <a href="{% url 'login' %}">Click here</a> to log in.</p>
+        {% url 'login' as login_url %}
+        <p>
+            {% blocktrans trimmed with login_url=login_url %}
+                Not authenticated. <a href="{{ login_url }}">Click here</a> to log in.
+            {% endblocktrans %}
+        </p>
     {% endif %}
 
 {% endblock %}
