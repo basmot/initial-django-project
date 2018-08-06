@@ -10,7 +10,7 @@ class StandardLoginViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = UserFactory()
-        cls.url = reverse('login')
+        cls.url = reverse('accounts:login')
 
     def test_get_view_not_authenticated(self):
         response = self.client.get(self.url, follow=True)
@@ -22,7 +22,7 @@ class StandardLogoutViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = UserFactory()
-        cls.url = reverse('logout')
+        cls.url = reverse('accounts:logout')
 
     def test_get_template_used(self):
         response = self.client.get(self.url, follow=True)
@@ -40,7 +40,7 @@ class UserCreateViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = UserFactory()
-        cls.url = reverse('subscribe')
+        cls.url = reverse('accounts:subscribe')
         new_user = UserFactory.build()
         cls.post_data = {
             'username': new_user.username,

@@ -7,8 +7,8 @@ from backoffice import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
 ]
 
 if 'debug_toolbar' in settings.INSTALLED_APPS:

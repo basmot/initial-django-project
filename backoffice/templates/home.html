@@ -12,7 +12,7 @@
             {% endblocktrans %}
         </p>
     {% else %}
-        {% url 'login' as login_url %}
+        {% url 'accounts:login' as login_url %}
         <p>
             {% blocktrans trimmed with login_url=login_url %}
                 Not authenticated. <a href="{{ login_url }}">Click here</a> to log in.

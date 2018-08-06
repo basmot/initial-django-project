@@ -24,4 +24,4 @@ class UserCreateView(CreateView):
 
     def get_success_url(self):
         add_message(self.request, messages.SUCCESS, _('Form successfully submitted.'))
-        return reverse('login')
+        return reverse('accounts:login')
