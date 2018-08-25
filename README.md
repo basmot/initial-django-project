@@ -1,6 +1,6 @@
 # initial-django-project
 
-[![Build Status](https://travis-ci.org/basmot/django-initial-project.png)](https://travis-ci.org/basmot/django-initial-project)
+[![Build Status](https://travis-ci.org/basmot/initial-django-project.svg?branch=master)](https://travis-ci.org/basmot/initial-django-project)
 <a href="https://codeclimate.com/github/basmot/initial-django-project/test_coverage"><img src="https://api.codeclimate.com/v1/badges/3a68733bac0f7a1e5743/test_coverage" /></a>
 <a href="https://codeclimate.com/github/basmot/initial-django-project/maintainability"><img src="https://api.codeclimate.com/v1/badges/3a68733bac0f7a1e5743/maintainability" /></a>
 
