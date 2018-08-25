@@ -18,3 +18,6 @@ plugins:
 exclude_patterns:
 - "**/tests/"
 - "**/migrations/"
+- "backoffice/settings/"
+- "**/apps.py"
+- "backoffice/wsgi.py"

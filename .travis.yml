@@ -3,20 +3,20 @@ env:
     - CC_TEST_REPORTER_ID=51860d1ef83557eda08dde53c4dd61f7a87a7cd84aa74bb5be8a88a96b4b3614
 
 language: python
-python: "3.5.2"
+python: 3.5.2
 cache: pip
 
 install:
-  - "pip install -r requirements.txt"
+  - pip install -r requirements.txt
 
 before_script:
-  - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
-  - "chmod +x ./cc-test-reporter"
-  - "./cc-test-reporter before-build"
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - python3 manage.py compilemessages
 
-script: "coverage run manage.py test"
+script:
+  - coverage run manage.py test
 
 after_script:
-  - "coverage xml"
-  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
