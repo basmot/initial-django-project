@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, UserManager
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.test import TestCase
 from django.urls import reverse
@@ -89,7 +89,6 @@ class CustomPasswordChangeViewTest(TestCase):
         }
 
     def test_when_user_is_not_logged(self):
-        # self.client.logout()
         response = self.client.get(self.url)
 
         self.assertRedirects(response, "/accounts/login/?next={}".format(self.url))
