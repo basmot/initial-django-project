@@ -1,9 +1,11 @@
+from django.contrib.auth.views import PasswordChangeView
+
 from accounts.forms import UserForm
 from backoffice.views import add_message
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth import views as auth_views
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView
 from django.utils.translation import ugettext_lazy as _
 
@@ -25,3 +27,12 @@ class UserCreateView(CreateView):
     def get_success_url(self):
         add_message(self.request, messages.SUCCESS, _('Form successfully submitted.'))
         return reverse('accounts:login')
+
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'password_change_form.html'
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        add_message(self.request, messages.SUCCESS, _('Password successfully updated.'))
+        return super().form_valid(form)

@@ -1,4 +1,6 @@
 import os
+
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -126,4 +128,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'accounts/login/'
+LOGIN_URL = reverse_lazy('accounts:login')

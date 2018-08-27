@@ -74,3 +74,40 @@ class UserCreateViewTest(TestCase):
         self.assertEqual(created_user.first_name, self.post_data['first_name'])
         self.assertEqual(created_user.last_name, self.post_data['last_name'])
         self.assertEqual(created_user.email, self.post_data['email'])
+
+
+class CustomPasswordChangeViewTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = User.objects.create_user('tmp', 'tmp@gmail.com', 'tmp', is_superuser=True)
+        cls.url = reverse('accounts:password_change')
+        cls.new_password = 'S€CR€T_P@$$WORD'
+        cls.post_data = {
+            'old_password': 'tmp',
+            'new_password1': cls.new_password,
+            'new_password2': cls.new_password,
+        }
+
+    def test_when_user_is_not_logged(self):
+        response = self.client.get(self.url)
+
+        self.assertRedirects(response, "/accounts/login/?next={}".format(self.url))
+
+    def test_get_template_used(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.url, follow=True)
+        self.assertEqual(response.status_code, HttpResponse.status_code)
+        self.assertTemplateUsed(response, 'password_change_form.html')
+
+    def test_post_success_message(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.url, data=self.post_data, follow=True)
+        messages = list(response.context['messages'])
+        self.assertEqual(len(messages), 1)
+        self.assertIn(_('Password successfully updated.'), messages[0].message)
+
+    def test_post_template_used(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.url, data=self.post_data, follow=True)
+        self.assertEqual(response.status_code, HttpResponse.status_code)
+        self.assertTemplateUsed(response, 'home.html')

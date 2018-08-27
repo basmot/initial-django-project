@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-04 14:51+0200\n"
+"POT-Creation-Date: 2018-08-26 15:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,27 +31,36 @@ msgstr "se connecter"
 msgid "subscribe"
 msgstr "s'inscrire"
 
-#: accounts/templates/registration_form.html:8
-msgid "registration form"
-msgstr "fomulaire d'inscription"
+#: accounts/templates/password_change_form.html:10
+msgid "password change"
+msgstr "changement de mot de passe"
 
+#: accounts/templates/password_change_form.html:17
 #: accounts/templates/registration_form.html:15
 msgid "submit"
 msgstr "soumettre"
 
-#: accounts/views.py:17
+#: accounts/templates/registration_form.html:8
+msgid "registration form"
+msgstr "fomulaire d'inscription"
+
+#: accounts/tests/test_views.py:36 accounts/views.py:19
 msgid "Successfully logged out."
 msgstr "Déconnecté avec succès."
 
-#: accounts/views.py:26
+#: accounts/tests/test_views.py:63 accounts/views.py:28
 msgid "Form successfully submitted."
 msgstr "Formulaire soumis avec succès."
 
-#: backoffice/settings/base.py:107
+#: accounts/views.py:37
+msgid "Password successfully updated."
+msgstr "Mot de passe mis à jour avec succès."
+
+#: backoffice/settings/base.py:109
 msgid "French"
 msgstr "Français"
 
-#: backoffice/settings/base.py:108
+#: backoffice/settings/base.py:110
 msgid "English"
 msgstr "Anglais"
 
@@ -80,3 +89,7 @@ msgstr "projet"
 #: backoffice/templates/navbar_user_logged.html:38
 msgid "logout"
 msgstr "se déconnecter"
+
+#: backoffice/templates/navbar_user_logged.html:39
+msgid "change password"
+msgstr "changer de mot de passe"
