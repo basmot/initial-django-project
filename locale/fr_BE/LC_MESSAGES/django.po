@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-26 15:05+0000\n"
+"POT-Creation-Date: 2018-09-10 16:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,21 +40,43 @@ msgstr "changement de mot de passe"
 msgid "submit"
 msgstr "soumettre"
 
+#: accounts/templates/profile_settings.html:9
+#: backoffice/templates/navbar_user_logged.html:39
+msgid "profile settings"
+msgstr "Gestion du profil"
+
+#: accounts/templates/profile_settings.html:16
+msgid "update"
+msgstr "Mettre à jour"
+
 #: accounts/templates/registration_form.html:8
 msgid "registration form"
 msgstr "fomulaire d'inscription"
 
-#: accounts/tests/test_views.py:36 accounts/views.py:19
+#: accounts/tests/test_views.py:36 accounts/views.py:21
 msgid "Successfully logged out."
 msgstr "Déconnecté avec succès."
 
-#: accounts/tests/test_views.py:63 accounts/views.py:28
+#: accounts/tests/test_views.py:63 accounts/views.py:30
 msgid "Form successfully submitted."
 msgstr "Formulaire soumis avec succès."
 
-#: accounts/views.py:37
+#: accounts/tests/test_views.py:106 accounts/views.py:39
 msgid "Password successfully updated."
 msgstr "Mot de passe mis à jour avec succès."
+
+#: accounts/tests/test_views.py:142 accounts/views.py:54
+msgid "Profile data successfully updated."
+msgstr "Profil mis à jour avec succès."
+
+#: accounts/tests/test_views.py:143 accounts/views.py:62
+msgid ""
+"Warning : your username has been changed. Next time you log in to our site, "
+"use <b>'{}'</b> (the new one) instead of <s>'{}'</s> (the old one)"
+msgstr ""
+"Attention : votre login a changé. La prochaine fois que vous vous "
+"connecterez sur notre site, veillez à utiliser '<b>{}</b>' (votre nouveau "
+"login) à la place de <s>'{}'</s> (votre ancien login)."
 
 #: backoffice/settings/base.py:109
 msgid "French"
@@ -86,10 +108,26 @@ msgstr ""
 msgid "project"
 msgstr "projet"
 
+#: backoffice/templates/navbar_user_logged.html:34
+msgid "connected as"
+msgstr "connecté en tant que"
+
 #: backoffice/templates/navbar_user_logged.html:38
+msgid "change password"
+msgstr "changer de mot de passe"
+
+#: backoffice/templates/navbar_user_logged.html:40
 msgid "logout"
 msgstr "se déconnecter"
 
-#: backoffice/templates/navbar_user_logged.html:39
-msgid "change password"
-msgstr "changer de mot de passe"
+#, fuzzy
+#~| msgid ""
+#~| "Warning : your username has been changed. Next time you log in to our "
+#~| "site, use <b>'{}'</b> (the new one) instead of <s>'{}'</s> (the old one)"
+#~ msgid ""
+#~ "Warning : your username has been changed. Next time you log in to our "
+#~ "site, use <b> '{}'</b>(the new one) instead of <s>'{}'</s> (the old one)"
+#~ msgstr ""
+#~ "Attention : votre login a changé. La prochaine fois que vous vous "
+#~ "connecterai sur notre site, veillez à utiliser <b>'{}'</b> (votre nouveau "
+#~ "login) à la place de <s>'{}'</s> (votre ancien login)"

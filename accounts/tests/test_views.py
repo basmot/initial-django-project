@@ -90,7 +90,6 @@ class CustomPasswordChangeViewTest(TestCase):
 
     def test_when_user_is_not_logged(self):
         response = self.client.get(self.url)
-
         self.assertRedirects(response, "/accounts/login/?next={}".format(self.url))
 
     def test_get_template_used(self):
@@ -111,3 +110,45 @@ class CustomPasswordChangeViewTest(TestCase):
         response = self.client.post(self.url, data=self.post_data, follow=True)
         self.assertEqual(response.status_code, HttpResponse.status_code)
         self.assertTemplateUsed(response, 'home.html')
+
+
+class UserUpdateViewTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = User.objects.create_user('tmp', 'tmp@gmail.com', 'tmp', is_superuser=True)
+        cls.url = reverse('accounts:profile_settings')
+        cls.post_data = {
+            'username': 'new_username',
+            'first_name': 'First name',
+            'last_name': 'Last name',
+            'email': 'test@test.test',
+        }
+
+    def test_when_user_is_not_logged(self):
+        response = self.client.get(self.url)
+        self.assertRedirects(response, "/accounts/login/?next={}".format(self.url))
+
+    def test_get_template_used(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.url, follow=True)
+        self.assertEqual(response.status_code, HttpResponse.status_code)
+        self.assertTemplateUsed(response, 'profile_settings.html')
+
+    def test_post_when_username_has_been_changed(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.url, data=self.post_data, follow=True)
+        messages = list(response.context['messages'])
+        self.assertEqual(len(messages), 2)
+        self.assertIn(_('Profile data successfully updated.'), messages[0].message)
+        warning_msg = _("Warning : your username has been changed. Next time you log in to our site, use <b>'{}'</b> "
+                        "(the new one) instead of <s>'{}'</s> (the old one)").format('new_username', self.user.username)
+        self.assertIn(warning_msg, messages[1].message)
+        user = User.objects.get(pk=self.user.pk)
+        for key, value in self.post_data.items():
+            self.assertEqual(value, getattr(user, key))
+
+    def test_post_template_used(self):
+        self.client.force_login(self.user)
+        response = self.client.post(self.url, data=self.post_data, follow=True)
+        self.assertEqual(response.status_code, HttpResponse.status_code)
+        self.assertTemplateUsed(response, 'profile_settings.html')

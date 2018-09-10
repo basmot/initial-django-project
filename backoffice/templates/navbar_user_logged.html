@@ -31,12 +31,13 @@
                 </li>
             </ul>
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user }}</button>
+                <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans 'connected as'|capfirst %} {{ request.user }}</button>
                 <div class="btn-group" role="group">
                     <button id="btnGroupDropUserProfile" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDropUserProfile">
-                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans 'logout'|capfirst %}</a>
                         <a class="dropdown-item" href="{% url 'accounts:password_change' %}">{% trans 'change password'|capfirst %}</a>
+                        <a class="dropdown-item" href="{% url 'accounts:profile_settings' %}">{% trans 'profile settings'|capfirst %}</a>
+                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">{% trans 'logout'|capfirst %}</a>
                     </div>
                 </div>
             </div>
